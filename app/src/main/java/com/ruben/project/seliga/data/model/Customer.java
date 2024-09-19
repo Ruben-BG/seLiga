@@ -3,7 +3,7 @@ package com.ruben.project.seliga.data.model;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "customer_table")
+@Entity(tableName = "customer")
 public class Customer {
     @PrimaryKey(autoGenerate = true)
     private int id;

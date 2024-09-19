@@ -1,14 +1,19 @@
 package com.ruben.project.seliga.data.repository;
 
 import android.app.Application;
+import android.util.Log;
+
 import androidx.lifecycle.LiveData;
+
 import com.ruben.project.seliga.data.database.AppDatabase;
 import com.ruben.project.seliga.data.database.PaymentsDao;
 import com.ruben.project.seliga.data.model.Payments;
+
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class PaymentsRepository {
     private final PaymentsDao paymentsDao;
@@ -21,15 +26,64 @@ public class PaymentsRepository {
     }
 
     public void insert(Payments payment) {
-        executorService.execute(() -> paymentsDao.insert(payment));
+        executorService.execute(() -> {
+            try {
+                paymentsDao.insert(payment);
+                Log.d("PaymentsRepository", "Pagamento inserido com sucesso.");
+            } catch (Exception e) {
+                Log.e("PaymentsRepository", "Erro ao inserir pagamento: ", e);
+            }
+        });
     }
 
     public void update(Payments payment) {
-        executorService.execute(() -> paymentsDao.update(payment));
+        executorService.execute(() -> {
+            try {
+                paymentsDao.update(payment);
+                Log.d("PaymentsRepository", "Pagamento atualizado com sucesso.");
+            } catch (Exception e) {
+                Log.e("PaymentsRepository", "Erro ao atualizar pagamento: ", e);
+            }
+        });
     }
 
     public void delete(Payments payment) {
-        executorService.execute(() -> paymentsDao.delete(payment));
+        executorService.execute(() -> {
+            try {
+                paymentsDao.delete(payment);
+                Log.d("PaymentsRepository", "Pagamento excluído com sucesso.");
+            } catch (Exception e) {
+                Log.e("PaymentsRepository", "Erro ao excluir pagamento: ", e);
+            }
+        });
+    }
+
+    public void deleteAllPaymentsPaid() {
+        executorService.execute(() -> {
+            try {
+                paymentsDao.deleteAllPaymentsPaid();
+                if (paymentsDao.getAllPayments().getValue() == null || paymentsDao.getAllPayments().getValue().isEmpty()) {
+                    paymentsDao.resetCustomerIdSequence();
+                }
+                Log.d("PaymentsRepository", "Todos os pagamentos excluídos com sucesso.");
+            } catch (Exception e) {
+                Log.e("PaymentsRepository", "Erro ao excluir todos os pagamentos: ", e);
+            }
+        });
+    }
+
+    public void deleteAllPaymentsNotPaid() {
+        executorService.execute(() -> {
+            try {
+                paymentsDao.deleteAllPaymentsNotPaid();
+                Log.d("PaymentsRepository", "Todos os pagamentos não pagos excluídos com sucesso.");
+                if (paymentsDao.getAllPayments().getValue() == null || paymentsDao.getAllPayments().getValue().isEmpty()) {
+                    paymentsDao.resetCustomerIdSequence();
+                }
+            } catch (Exception e) {
+                Log.e("PaymentsRepository", "Erro ao excluir todos os pagamentos não pagos: ", e);
+            }
+        });
     }
 
     public LiveData<Payments> getPaymentById(int id) {
@@ -40,7 +94,23 @@ public class PaymentsRepository {
         return paymentsDao.getPaymentsByDate(date);
     }
 
-    public LiveData<List<Payments>> getAllPayments() {
-        return paymentsDao.getAllPayments();
+    public LiveData<List<Payments>> getAllPaymentsPaidDesc() {
+        return paymentsDao.getAllPaymentsPaidDesc();
+    }
+
+    public LiveData<List<Payments>> getAllPaymentsNotPaidDesc() {
+        return paymentsDao.getAllPaymentsNotPaidDesc();
+    }
+
+    // Método para encerrar o ExecutorService
+    public void shutdownExecutor() {
+        executorService.shutdown();
+        try {
+            if (!executorService.awaitTermination(60, TimeUnit.SECONDS)) {
+                executorService.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            executorService.shutdownNow();
+        }
     }
 }

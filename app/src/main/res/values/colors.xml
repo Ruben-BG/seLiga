@@ -9,4 +9,5 @@
     <color name="buttonBackground">#0473A0</color>
     <color name="uncheckedButtonBackground">#EEEEF0</color>
     <color name="removeButtonBackground">#860303</color>
+    <color name="borderBlueWhite">#737582</color>
 </resources>

@@ -30,12 +30,15 @@ public class Payments {
 
     private boolean paid;
 
+    private double value;
+
     @ColumnInfo(name = "date")
     private Date date;
 
-    public Payments(int customerId, boolean paid, Date date) {
+    public Payments(int customerId, boolean paid, double value, Date date) {
         this.customerId = customerId;
         this.paid = paid;
+        this.value = value;
         this.date = date;
     }
 
@@ -61,6 +64,14 @@ public class Payments {
 
     public void setPaid(boolean paid) {
         this.paid = paid;
+    }
+
+    public Double getValue() {
+        return value;
+    }
+
+    public void setValue(Double value) {
+        this.value = value;
     }
 
     public Date getDate() {
