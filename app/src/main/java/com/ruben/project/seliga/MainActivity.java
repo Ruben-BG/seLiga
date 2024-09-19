@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.navigation.NavController;
+import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -84,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.action_notifications) {
             NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-            navController.navigate(R.id.nav_notifications);
+            navController.navigate(R.id.nav_notifications, null, new NavOptions.Builder()
+                    .setPopUpTo(navController.getGraph().getStartDestinationId(), true)
+                    .build());
             return true;
         }
         return super.onOptionsItemSelected(item);

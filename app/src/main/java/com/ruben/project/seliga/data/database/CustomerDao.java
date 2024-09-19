@@ -23,12 +23,24 @@ public interface CustomerDao {
     @Delete
     void delete(Customer customer);
 
-    @Query("SELECT * FROM customer_table WHERE id = :id")
+    @Query("DELETE FROM customer")
+    void deleteAllCustomers();
+
+    @Query("UPDATE sqlite_sequence SET seq = 0 WHERE name = 'customer'")
+    void resetCustomerIdSequence();
+
+    @Query("SELECT * FROM customer WHERE id = :id")
     LiveData<Customer> getCustomerById(int id);
 
-    @Query("SELECT * FROM customer_table")
+    @Query("SELECT * FROM customer")
     LiveData<List<Customer>> getAllCustomers();
 
-    @Query("SELECT * FROM customer_table WHERE name = :name LIMIT 1")
+    @Query("SELECT * FROM customer WHERE name = :name LIMIT 1")
     LiveData<Customer> getCustomerByName(String name);
+
+    @Query("SELECT name FROM customer")
+    LiveData<List<String>> getAllCustomerNames();
+
+    @Query("SELECT * FROM customer WHERE name = :name LIMIT 1")
+    Customer getCustomerByNameSync(String name);
 }

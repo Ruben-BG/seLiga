@@ -24,6 +24,15 @@ public interface PaymentsDao {
     @Delete
     void delete(Payments payment);
 
+    @Query("DELETE FROM payments WHERE paid = 1")
+    void deleteAllPaymentsPaid();
+
+    @Query("DELETE FROM payments WHERE paid = 0")
+    void deleteAllPaymentsNotPaid();
+
+    @Query("UPDATE sqlite_sequence SET seq = 0 WHERE name = 'payments'")
+    void resetCustomerIdSequence();
+
     @Query("SELECT * FROM payments WHERE id = :id")
     LiveData<Payments> getPaymentById(int id);
 
@@ -32,4 +41,10 @@ public interface PaymentsDao {
 
     @Query("SELECT * FROM payments")
     LiveData<List<Payments>> getAllPayments();
+
+    @Query("SELECT * FROM payments WHERE paid = 1 ORDER BY id DESC")
+    LiveData<List<Payments>> getAllPaymentsPaidDesc();
+
+    @Query("SELECT * FROM payments WHERE paid = 0 ORDER BY id DESC")
+    LiveData<List<Payments>> getAllPaymentsNotPaidDesc();
 }

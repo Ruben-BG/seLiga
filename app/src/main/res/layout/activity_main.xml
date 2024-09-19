@@ -36,9 +36,10 @@
         android:id="@+id/navigation_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:background="@color/primary"
+        android:background="@drawable/navigation_view_background"
         app:itemTextColor="@color/white"
         app:itemShapeFillColor="@color/nav_item_shape_selector"
+        app:itemShapeAppearanceOverlay="@style/ShapeAppearanceOverlay.Nav"
         android:layout_gravity="start"
         android:fitsSystemWindows="true"
         app:menu="@menu/drawer_menu"/>
