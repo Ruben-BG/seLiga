@@ -47,4 +47,7 @@ public interface PaymentsDao {
 
     @Query("SELECT * FROM payments WHERE paid = 0 ORDER BY id DESC")
     LiveData<List<Payments>> getAllPaymentsNotPaidDesc();
+
+    @Query("SELECT * FROM payments")
+    List<Payments> getAll();
 }

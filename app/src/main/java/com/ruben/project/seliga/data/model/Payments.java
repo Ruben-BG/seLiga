@@ -30,7 +30,7 @@ public class Payments {
 
     private boolean paid;
 
-    private double value;
+    private Double value;
 
     @ColumnInfo(name = "date")
     private Date date;
