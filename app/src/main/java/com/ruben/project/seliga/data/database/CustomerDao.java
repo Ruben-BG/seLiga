@@ -43,4 +43,7 @@ public interface CustomerDao {
 
     @Query("SELECT * FROM customer WHERE name = :name LIMIT 1")
     Customer getCustomerByNameSync(String name);
+
+    @Query("SELECT * FROM customer")
+    List<Customer> getAll();
 }

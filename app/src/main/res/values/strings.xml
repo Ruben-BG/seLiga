@@ -4,7 +4,6 @@
     <string name="home">Home</string>
     <string name="menu_home">Início</string>
     <string name="menu_management">Gerenciamento</string>
-    <string name="menu_notifications">Notificações</string>
     <string name="menu_export">Exportar</string>
     <string name="menu_about">Sobre</string>
     <string name="menu_clients">Clientes</string>
@@ -25,13 +24,11 @@
     <string name="manage_clients">Gerenciar Clientes</string>
     <string name="manage_payments">Gerenciar Pagamentos</string>
     <string name="manage_charges">Gerenciar Cobranças</string>
-    <string name="manage_notifications">Gerenciar Notificações</string>
     <string name="client_already_exists">Cliente já existe</string>
     <string name="client_added_successfully">Cliente adicionado com sucesso</string>
     <string name="clear_client_list">Limpar lista de clientes</string>
     <string name="clear_payment_list">Limpar pagamentos</string>
     <string name="clear_charge_list">Limpar cobranças</string>
-    <string name="clear_notification_list">Limpar notificações</string>
     <string name="clear_list_question">Você realmente deseja limpar a lista de %1$s?</string>
     <string name="list_cleared_successfully">Lista limpa com sucesso</string>
     <string name="item_removed_from_list">Item removido da lista</string>
@@ -52,6 +49,12 @@
     <string name="client_removal_question">Você realmente deseja remover o cliente %1$s?</string>
     <string name="payment_removal">Remoção de pagamento</string>
     <string name="payment_removal_question">Você realmente deseja remover o "%1$s"?</string>
+    <string name="export_payments">Exportar Pagamentos</string>
+    <string name="export_charges">Exportar Cobranças</string>
+    <string name="export_data">Exportar Dados</string>
+    <string name="data_exported_successfully">Dados exportados com sucesso em Downloads</string>
+    <string name="export_confirmation">Confirmar exportação</string>
+    <string name="export_confirmation_question">Você realmente deseja exportar os dados?</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

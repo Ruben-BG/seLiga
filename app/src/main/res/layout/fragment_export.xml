@@ -6,19 +6,40 @@
     android:layout_height="match_parent"
     tools:context=".ui.export.ExportFragment">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Exportar"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+        <com.ruben.project.seliga.ui.common.HeaderView
+            android:id="@+id/header_view_export"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/export_payment_button"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_marginHorizontal="32dp"
+            app:cornerRadius="10dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/export_payments"
+            android:textSize="15sp"
+            android:backgroundTint="@color/secondary"
+            android:textColor="@color/black" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/export_charges_button"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_marginHorizontal="32dp"
+            app:cornerRadius="10dp"
+            android:layout_marginTop="12dp"
+            android:text="@string/export_charges"
+            android:textSize="15sp"
+            android:backgroundTint="@color/secondary"
+            android:textColor="@color/black" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
 </FrameLayout>
