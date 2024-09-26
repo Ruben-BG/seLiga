@@ -1,5 +1,10 @@
 <resources>
     <string name="app_name">Se Liga</string>
+    <string name="about_title">Se Liga!</string>
+    <string name="created_by">Criado por Ruben Braga</string>
+    <string name="check_repository">Conferir repositório</string>
+    <string name="linkedin">LinkedIn</string>
+    <string name="version">Versão %1$s</string>
     <string name="empty_content">Nenhum conteúdo disponível</string>
     <string name="home">Home</string>
     <string name="menu_home">Início</string>
