@@ -8,11 +8,13 @@ import androidx.lifecycle.LiveData;
 import com.ruben.project.seliga.data.database.AppDatabase;
 import com.ruben.project.seliga.data.database.PaymentsDao;
 import com.ruben.project.seliga.data.model.Payments;
+import com.ruben.project.seliga.util.ClientWeek;
 
 import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 public class PaymentsRepository {
@@ -100,6 +102,26 @@ public class PaymentsRepository {
 
     public LiveData<List<Payments>> getAllPaymentsNotPaidDesc() {
         return paymentsDao.getAllPaymentsNotPaidDesc();
+    }
+
+    public LiveData<Integer> getPaymentCount() {
+        return paymentsDao.getPaymentCount();
+    }
+
+    public LiveData<Integer> getChargeCount() {
+        return paymentsDao.getChargeCount();
+    }
+
+    public LiveData<List<Payments>> getPaymentsOfTheWeek(Date start, Date end) {
+        return paymentsDao.getPaymentsOfTheWeek(start, end);
+    }
+
+    public LiveData<Integer> getWeeklyClientsCount(Date start, Date end) {
+        return paymentsDao.getCustomerCountOfTheWeek(start, end);
+    }
+
+    public LiveData<List<ClientWeek>> getDistinctClientsWithCount(Date start, Date end) {
+        return paymentsDao.getDistinctClientsWithCount(start, end);
     }
 
     // Método para encerrar o ExecutorService

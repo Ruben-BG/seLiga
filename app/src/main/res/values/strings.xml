@@ -53,13 +53,24 @@
     <string name="client_removal">Remoção de cliente</string>
     <string name="client_removal_question">Você realmente deseja remover o cliente %1$s?</string>
     <string name="payment_removal">Remoção de pagamento</string>
-    <string name="payment_removal_question">Você realmente deseja remover o "%1$s"?</string>
+    <string name="payment_removal_question">Você realmente deseja remover o %1$s?</string>
     <string name="export_payments">Exportar Pagamentos</string>
     <string name="export_charges">Exportar Cobranças</string>
     <string name="export_data">Exportar Dados</string>
     <string name="data_exported_successfully">Dados exportados com sucesso em Downloads</string>
     <string name="export_confirmation">Confirmar exportação</string>
     <string name="export_confirmation_question">Você realmente deseja exportar os dados?</string>
+    <string name="hello_user">Olá, %1$s</string>
+    <string name="see_your_general_data">Veja seus dados gerais</string>
+    <string name="clients_count">%1$s\nClientes</string>
+    <string name="payments_count">%1$s\nPagamentos</string>
+    <string name="charges_count">%1$s\nCobranças</string>
+    <string name="clients_week">%1$s Clientes da semana</string>
+    <string name="clients_most_operations">Clientes com mais operações na semana</string>
+    <string name="operations_week">%1$s Operações da semana</string>
+    <string name="payment_operation_week">Pagamentos: %1$s</string>
+    <string name="charge_operation_week">Cobranças: %1$s</string>
+    <string name="events_week">Eventos da semana</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

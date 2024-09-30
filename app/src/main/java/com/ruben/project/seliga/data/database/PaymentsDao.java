@@ -8,6 +8,7 @@ import androidx.room.Query;
 import androidx.room.Update;
 
 import com.ruben.project.seliga.data.model.Payments;
+import com.ruben.project.seliga.util.ClientWeek;
 
 import java.util.Date;
 import java.util.List;
@@ -50,4 +51,19 @@ public interface PaymentsDao {
 
     @Query("SELECT * FROM payments")
     List<Payments> getAll();
+
+    @Query("SELECT COUNT(*) FROM payments WHERE paid = 1")
+    LiveData<Integer> getPaymentCount();
+
+    @Query("SELECT COUNT(*) FROM payments WHERE paid = 0")
+    LiveData<Integer> getChargeCount();
+
+    @Query("SELECT * FROM payments WHERE date BETWEEN :start AND :end")
+    LiveData<List<Payments>> getPaymentsOfTheWeek(Date start, Date end);
+
+    @Query("SELECT COUNT(DISTINCT customerId) FROM payments WHERE date BETWEEN :start AND :end")
+    LiveData<Integer> getCustomerCountOfTheWeek(Date start, Date end);
+
+    @Query("SELECT customerId, COUNT(customerId) as count FROM payments WHERE date BETWEEN :start AND :end GROUP BY customerId")
+    LiveData<List<ClientWeek>> getDistinctClientsWithCount(Date start, Date end);
 }

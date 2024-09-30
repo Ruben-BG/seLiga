@@ -38,4 +38,8 @@ public class HeaderView extends LinearLayout {
     public void setActionButtonImage(@DrawableRes int resId) {
         actionButton.setImageResource(resId);
     }
+
+    public void setActionButtonVisibility(boolean isVisible) {
+        actionButton.setVisibility(isVisible ? VISIBLE : GONE);
+    }
 }

@@ -96,6 +96,10 @@ public class CustomerRepository {
         return customerDao.getAllCustomerNames();
     }
 
+    public LiveData<Integer> getCustomerCount() {
+        return customerDao.getCustomerCount();
+    }
+
     public void shutdownExecutor() {
         executorService.shutdown();
         try {

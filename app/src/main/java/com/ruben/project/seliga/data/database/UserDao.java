@@ -31,4 +31,7 @@ public interface UserDao {
 
     @Query("SELECT * FROM user")
     List<User> getAll();
+
+    @Query("SELECT name FROM user WHERE id = 1")
+    String getUserName();
 }
