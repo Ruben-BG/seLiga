@@ -8,6 +8,7 @@ import com.ruben.project.seliga.data.model.User;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 public class UserRepository {
     private final UserDao userDao;
@@ -33,6 +34,15 @@ public class UserRepository {
 
     public User getUserById(int id) {
         return userDao.getUserById(id);
+    }
+
+    public String getUserName() {
+        Future<String> future = executorService.submit(userDao::getUserName);
+        try {
+            return future.get();
+        } catch (Exception e) {
+            return "";
+        }
     }
 
     public LiveData<List<User>> getAllUsers() {

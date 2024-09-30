@@ -5,6 +5,7 @@
     <color name="primary">#065781</color>
     <color name="primaryVariant">#0098C3</color>
     <color name="primaryDark">#16192E</color>
+    <color name="primaryDarkVariant">#28272C</color>
     <color name="secondary">#D2F429</color>
     <color name="buttonBackground">#0473A0</color>
     <color name="uncheckedButtonBackground">#EEEEF0</color>

@@ -46,4 +46,7 @@ public interface CustomerDao {
 
     @Query("SELECT * FROM customer")
     List<Customer> getAll();
+
+    @Query("SELECT COUNT(*) FROM customer")
+    LiveData<Integer> getCustomerCount();
 }
