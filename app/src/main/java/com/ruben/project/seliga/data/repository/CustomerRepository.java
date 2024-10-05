@@ -36,6 +36,17 @@ public class CustomerRepository {
         });
     }
 
+    public void insertAll(List<Customer> customers) {
+        executorService.execute(() -> {
+            try {
+                customerDao.insertAll(customers);
+                Log.d("CustomerRepository", "Todos os Customers foram inseridos com sucesso.");
+            } catch (Exception e) {
+                Log.e("CustomerRepository", "Erro ao inserir todos os Customers: ", e);
+            }
+        });
+    }
+
     public void update(Customer customer) {
         executorService.execute(() -> {
             try {
@@ -45,6 +56,10 @@ public class CustomerRepository {
                 Log.e("CustomerRepository", "Erro ao atualizar Customer: ", e);
             }
         });
+    }
+
+    public Future<Boolean> exists(int customerId) {
+        return executorService.submit(() -> customerDao.exists(customerId));
     }
 
     public void delete(Customer customer) {

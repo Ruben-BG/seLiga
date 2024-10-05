@@ -17,6 +17,7 @@
     <string name="screen_selector">Seletor de telas</string>
     <string name="settings_popup">Pop-up de Configurações</string>
     <string name="undefined">Undefined</string>
+    <string name="none">Nenhum</string>
     <string name="client_list">Lista de clientes</string>
     <string name="payment_list">Lista de pagamentos</string>
     <string name="charge_list">Lista de cobranças</string>
@@ -71,6 +72,17 @@
     <string name="payment_operation_week">Pagamentos: %1$s</string>
     <string name="charge_operation_week">Cobranças: %1$s</string>
     <string name="events_week">Eventos da semana</string>
+    <string name="first_time_app">Primeira vez no App?</string>
+    <string name="import_data">Por favor, importe seus dados.</string>
+    <string name="import_text">Importar</string>
+    <string name="imported_text">Importado</string>
+    <string name="previous">Anterior</string>
+    <string name="next">Próximo</string>
+    <string name="add_your_name">Adicione seu nome</string>
+    <string name="invalid_name">Nome inválido</string>
+    <string name="invalid_file_format">Formato de arquivo inválido</string>
+    <string name="file_already_imported">Arquivo já importado com sucesso</string>
+    <string name="import_file_first">Por favor, importe um arquivo primeiro.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

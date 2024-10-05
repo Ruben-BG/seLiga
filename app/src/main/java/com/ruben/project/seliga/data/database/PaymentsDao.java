@@ -25,6 +25,9 @@ public interface PaymentsDao {
     @Delete
     void delete(Payments payment);
 
+    @Insert
+    void insertAll(List<Payments> payments);
+
     @Query("DELETE FROM payments WHERE paid = 1")
     void deleteAllPaymentsPaid();
 

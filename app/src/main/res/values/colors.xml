@@ -2,8 +2,10 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="lightGrey">#F5F5F5</color>
     <color name="primary">#065781</color>
     <color name="primaryVariant">#0098C3</color>
+    <color name="lightBlue">#00A7D5</color>
     <color name="primaryDark">#16192E</color>
     <color name="primaryDarkVariant">#28272C</color>
     <color name="secondary">#D2F429</color>
@@ -11,4 +13,5 @@
     <color name="uncheckedButtonBackground">#EEEEF0</color>
     <color name="removeButtonBackground">#860303</color>
     <color name="borderBlueWhite">#737582</color>
+    <color name="rippleColor">#B3B3B3</color>
 </resources>
