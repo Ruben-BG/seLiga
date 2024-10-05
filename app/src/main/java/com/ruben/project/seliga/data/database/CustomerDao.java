@@ -23,6 +23,12 @@ public interface CustomerDao {
     @Delete
     void delete(Customer customer);
 
+    @Insert
+    void insertAll(List<Customer> customers);
+
+    @Query("SELECT EXISTS(SELECT 1 FROM customer WHERE id = :customerId)")
+    boolean exists(int customerId);
+
     @Query("DELETE FROM customer")
     void deleteAllCustomers();
 

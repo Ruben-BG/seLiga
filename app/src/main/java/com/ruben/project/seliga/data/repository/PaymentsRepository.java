@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
 public class PaymentsRepository {
@@ -34,6 +33,17 @@ public class PaymentsRepository {
                 Log.d("PaymentsRepository", "Pagamento inserido com sucesso.");
             } catch (Exception e) {
                 Log.e("PaymentsRepository", "Erro ao inserir pagamento: ", e);
+            }
+        });
+    }
+
+    public void insertAll(List<Payments> payments) {
+        executorService.execute(() -> {
+            try {
+                paymentsDao.insertAll(payments);
+                Log.d("PaymentsRepository", "Todos os pagamentos foram inseridos com sucesso.");
+            } catch (Exception e) {
+                Log.e("PaymentsRepository", "Erro ao inserir todos os pagamentos: ", e);
             }
         });
     }

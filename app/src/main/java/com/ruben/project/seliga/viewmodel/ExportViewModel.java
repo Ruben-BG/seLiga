@@ -52,11 +52,11 @@ public class ExportViewModel extends ViewModel {
             List<Payments> payments = db.paymentsDao().getAll();
             List<User> users = db.userDao().getAll();
 
-            if (!payments.isEmpty() && Boolean.TRUE.equals(isPaymentInputEnabled.getValue())) {
+            if (!payments.isEmpty() && Boolean.FALSE.equals(isPaymentInputEnabled.getValue())) {
                 payments.removeIf(Payments::isPaid);
             }
 
-            if (!payments.isEmpty() && Boolean.TRUE.equals(isChargeInputEnabled.getValue())) {
+            if (!payments.isEmpty() && Boolean.FALSE.equals(isChargeInputEnabled.getValue())) {
                 payments.removeIf(payment -> !payment.isPaid());
             }
 
