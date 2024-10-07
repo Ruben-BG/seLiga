@@ -1,6 +1,5 @@
 package com.ruben.project.seliga.ui.common;
 
-import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.content.Context;
@@ -9,11 +8,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-
-import androidx.core.content.ContextCompat;
 
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
@@ -89,10 +85,6 @@ public class HeaderDialog {
         nameContainer.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
 
-    public void setAddNameButtonVisibility(boolean visible) {
-        addNameButton.setVisibility(visible ? View.VISIBLE : View.GONE);
-    }
-
     public void setSelectNameInputVisibility(boolean visible) {
         selectNameInputLayout.setVisibility(visible ? View.VISIBLE : View.GONE);
     }
@@ -146,31 +138,6 @@ public class HeaderDialog {
 
     public void setDateButtonColor(int color) {
         dateButton.setBackgroundColor(color);
-    }
-
-    public void setAddButtonColor(int color) {
-        addButton.setBackgroundColor(color);
-    }
-
-    public void setClearButtonColor(int color) {
-        clearButton.setBackgroundColor(color);
-    }
-
-    //Text color alterations
-    public void setValueButtonTextColor(int color) {
-        valueButton.setTextColor(color);
-    }
-
-    public void setDateButtonTextColor(int color) {
-        dateButton.setTextColor(color);
-    }
-
-    public void setAddButtonTextColor(int color) {
-        addButton.setTextColor(color);
-    }
-
-    public void setClearButtonTextColor(int color) {
-        clearButton.setTextColor(color);
     }
 
     //Text alterations

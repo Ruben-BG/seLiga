@@ -13,7 +13,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
-import java.util.concurrent.TimeUnit;
 
 public class CustomerRepository {
     private final CustomerDao customerDao;
@@ -43,17 +42,6 @@ public class CustomerRepository {
                 Log.d("CustomerRepository", "Todos os Customers foram inseridos com sucesso.");
             } catch (Exception e) {
                 Log.e("CustomerRepository", "Erro ao inserir todos os Customers: ", e);
-            }
-        });
-    }
-
-    public void update(Customer customer) {
-        executorService.execute(() -> {
-            try {
-                customerDao.update(customer);
-                Log.d("CustomerRepository", "Customer atualizado com sucesso.");
-            } catch (Exception e) {
-                Log.e("CustomerRepository", "Erro ao atualizar Customer: ", e);
             }
         });
     }
@@ -113,16 +101,5 @@ public class CustomerRepository {
 
     public LiveData<Integer> getCustomerCount() {
         return customerDao.getCustomerCount();
-    }
-
-    public void shutdownExecutor() {
-        executorService.shutdown();
-        try {
-            if (!executorService.awaitTermination(60, TimeUnit.SECONDS)) {
-                executorService.shutdownNow();
-            }
-        } catch (InterruptedException e) {
-            executorService.shutdownNow();
-        }
     }
 }

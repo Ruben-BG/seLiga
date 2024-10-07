@@ -5,7 +5,6 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import com.ruben.project.seliga.data.model.Payments;
 import com.ruben.project.seliga.util.ClientWeek;
@@ -19,14 +18,8 @@ public interface PaymentsDao {
     @Insert
     void insert(Payments payment);
 
-    @Update
-    void update(Payments payment);
-
     @Delete
     void delete(Payments payment);
-
-    @Insert
-    void insertAll(List<Payments> payments);
 
     @Query("DELETE FROM payments WHERE paid = 1")
     void deleteAllPaymentsPaid();
@@ -36,12 +29,6 @@ public interface PaymentsDao {
 
     @Query("UPDATE sqlite_sequence SET seq = 0 WHERE name = 'payments'")
     void resetCustomerIdSequence();
-
-    @Query("SELECT * FROM payments WHERE id = :id")
-    LiveData<Payments> getPaymentById(int id);
-
-    @Query("SELECT * FROM payments WHERE date = :date")
-    LiveData<List<Payments>> getPaymentsByDate(Date date);
 
     @Query("SELECT * FROM payments")
     LiveData<List<Payments>> getAllPayments();
