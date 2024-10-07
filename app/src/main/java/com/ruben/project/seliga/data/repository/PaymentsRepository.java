@@ -14,7 +14,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class PaymentsRepository {
     private final PaymentsDao paymentsDao;
@@ -33,28 +32,6 @@ public class PaymentsRepository {
                 Log.d("PaymentsRepository", "Pagamento inserido com sucesso.");
             } catch (Exception e) {
                 Log.e("PaymentsRepository", "Erro ao inserir pagamento: ", e);
-            }
-        });
-    }
-
-    public void insertAll(List<Payments> payments) {
-        executorService.execute(() -> {
-            try {
-                paymentsDao.insertAll(payments);
-                Log.d("PaymentsRepository", "Todos os pagamentos foram inseridos com sucesso.");
-            } catch (Exception e) {
-                Log.e("PaymentsRepository", "Erro ao inserir todos os pagamentos: ", e);
-            }
-        });
-    }
-
-    public void update(Payments payment) {
-        executorService.execute(() -> {
-            try {
-                paymentsDao.update(payment);
-                Log.d("PaymentsRepository", "Pagamento atualizado com sucesso.");
-            } catch (Exception e) {
-                Log.e("PaymentsRepository", "Erro ao atualizar pagamento: ", e);
             }
         });
     }
@@ -98,14 +75,6 @@ public class PaymentsRepository {
         });
     }
 
-    public LiveData<Payments> getPaymentById(int id) {
-        return paymentsDao.getPaymentById(id);
-    }
-
-    public LiveData<List<Payments>> getPaymentsByDate(Date date) {
-        return paymentsDao.getPaymentsByDate(date);
-    }
-
     public LiveData<List<Payments>> getAllPaymentsPaidDesc() {
         return paymentsDao.getAllPaymentsPaidDesc();
     }
@@ -132,17 +101,5 @@ public class PaymentsRepository {
 
     public LiveData<List<ClientWeek>> getDistinctClientsWithCount(Date start, Date end) {
         return paymentsDao.getDistinctClientsWithCount(start, end);
-    }
-
-    // Método para encerrar o ExecutorService
-    public void shutdownExecutor() {
-        executorService.shutdown();
-        try {
-            if (!executorService.awaitTermination(60, TimeUnit.SECONDS)) {
-                executorService.shutdownNow();
-            }
-        } catch (InterruptedException e) {
-            executorService.shutdownNow();
-        }
     }
 }
